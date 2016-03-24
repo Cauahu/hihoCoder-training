@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1458822752 source:d:\c++\hihocoder-training\digitalnumber\main.cpp
+	<iostream>
+	<stdio.h>
+
