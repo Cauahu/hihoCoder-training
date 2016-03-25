@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1458876026 source:d:\c++\hihocoder-training\drawline\main.cpp
+	<iostream>
+	<vector>
+	<stdio.h>
+
