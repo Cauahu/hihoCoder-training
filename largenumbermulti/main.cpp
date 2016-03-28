@@ -1,4 +1,5 @@
-#include <iostream>
+/*#include <iostream>
+
 #include <string>
 #include <algorithm>
 #include <string.h>
@@ -48,4 +49,45 @@ int main()
     bignummulti(num1, num2);
 
     return 0;
+}*/
+#include <iostream>
+#include <cmath>
+#include <cstdio>
+#include <cctype>
+#include <string>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+void normal(vector<int>& num)
+{
+    //处理可能的进位
+    num.push_back(0);
+    for(int i = 0;i<num.size();i++)
+    {
+        num[i+1] += num[i]/10;
+        num[i] %= 10;
+    }
+    while(num.size()>1 && num.back()==0)
+        num.pop_back();
 }
+
+vector<int> multiply(vector<int>& a,vector<int>& b)
+{
+    vector<int> c(a.size()+b.size()+1,0);
+    for(int i = 0;i<a.size();i++)
+    {
+        for(int j = 0;j<b.size();j++)
+            c[i+j] += a[i]*b[j];
+    }
+    normal(c);
+    return c;
+}
+
+
+int main()
+{
+    return 0;
+}
+
+
