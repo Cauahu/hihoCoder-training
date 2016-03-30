@@ -42,9 +42,6 @@ void findxy()
 
 int main()
 {
-
-    //cin >> N >> M >> K;
-    //cout << N << M << K;
     findxy();
 
     return 0;
