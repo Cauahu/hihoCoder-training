@@ -5,31 +5,30 @@ using namespace std;
 最大子矩阵问题，通过分解为最大子段问题求解，而最大子段问题可以用动态规划解决。
 */
 
-int a[][3] = {{4,-2,9},{-1,3,8},{-6,7,6},{0,9,-5}};
+int a[][4] = {{0,-2,-7,0},{9,2,-6,2},{-4,1,-4,1},{-1,8,0,-2}};
 
-int maxsubsum(int *A,int &y1,int &y2)
+int maxsubsum(int *A,int &c,int &d)
 {
     //动态规划法,状态转移方程：b[j]=max{b[j-1]+a[j],a[j]},1<=j<=n。
-    int b = -9999999, sum = -9999999;
-    int j = 0, k = 0;//j，k分别记录范围坐标
-    for(int i=0;i<5;i++)
+    int b = A[0], sum = A[0];
+    int p = 0,q = 0;
+    for(int i=1;i<4;i++)
     {
         if(b+A[i] > A[i])
         {
-            j = i;
+            q = i;
             b += A[i];
         }
         else
         {
-            j = i;
-            k = i;
+            p = q = i;
             b = A[i];
         }
         if(b > sum )
         {
+            c = p;
+            d = q;
             sum = b;
-            y1 = k;
-            y2 = j;
         }
 
     }
@@ -38,42 +37,41 @@ int maxsubsum(int *A,int &y1,int &y2)
 
 int maxmatrixsum()
 {
-    int x1, y1, x2, y2;
+    int x1, y1, x2, y2;//记录子矩阵范围
     int sum = -9999999;
     for(int i=0;i<4;i++)
     {
-        int b[4] = {-999999,-999999,-999999,-999999};//记录j行k列所有和
-        for(int j=i;i<4;j++)
+        int b[4] = {0};//记录j行k列所有和
+        for(int j=i;j<4;j++)
         {
-            for(int k=0;k<3;k++)
+            int k;
+            for(k=0;k<4;k++)
             {
                 b[k] +=a[j][k];//临时记录k列的和
             }
-            int y1_t,y2_t;
-            int temp = maxsubsum(b,y1_t,y2_t);
+            int c = -1,d = -1;
+            int temp = maxsubsum(b,c,d);
             if(temp > sum)
             {
-                sum = temp;
                 x1 = i;
+                y1 = c;
                 x2 = j;
-                y1 = y1_t;
-                y2 = y2_t;
+                y2 = d;
+                sum = temp;
             }
         }
     }
     for(int i=x1;i<=x2;i++)
     {
         for(int j=y1;j<=y2;j++)
-            cout << a[i][j] << " ";
+            cout << a[i][j] << "\t";
         cout << endl;
     }
     return sum;
 }
 
-
-
 int main()
 {
-    maxmatrixsum();
+    cout << maxmatrixsum();
     return 0;
 }

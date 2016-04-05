@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1459838230 source:g:\c++\hihocoder-training\maxmatrixsum\main.cpp
+	<iostream>
+	<string.h>
+
