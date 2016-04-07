@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <string.h>
 using namespace std;
 
 /*
@@ -10,8 +11,10 @@ using namespace std;
     进而也可以将先序遍历除第一个元素以外的剩余部分分为两个部分，第一个部分为左子树的先序遍历，第二个部分为右子树的先序遍历。
     由上述分析结果，可以递归调用构建函数，根据左子树、右子树的先序、中序遍历重建左、右子树。
 */
+    char preorder[] = {'A','B','C','D','E','F','G','H'};
+    char inorder[] = {'B','D','C','E','A','F','H','G'};
 
-
+//建树的解法
 typedef struct Node
 {
     char vaule;
@@ -48,11 +51,46 @@ void postorder(PTNode node)//后序遍历
         postorder(node->rchild);
     cout << node->vaule << " ";
 }
+
+
+//不建树的解法：用数组存储先序遍历中每个元素在中序遍历中的位置，设置游标cur遍历先序序列，模拟后序遍历行为即可。
+int a[8], cur=-1;//cur用来遍历先序序列中的元素
+void pretreatment()
+{
+    memset(a,-1,8*sizeof(int));
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        {
+            if(preorder[i] == inorder[j])
+                a[i] = j;               //存储先序遍历中的每个元素在中序遍历中的位置。
+        }
+    }
+}
+void usearrysovle(char * inorder, int l, int r)
+{
+    if(l > r)
+        return ;
+    if(l < r)
+        cur++;
+    int n=a[cur];
+    if(l == r)
+    {
+        cout << inorder[r] << " ";
+        cur++;
+        return ;
+    }
+    cout << "l:" << l << " r:" << r << " n:" << n << " cur:" << cur << endl;
+    usearrysovle(inorder, l, n-1);
+    usearrysovle(inorder, n+1, r);
+    cout << inorder[n] << " ";
+}
+
 int main()
 {
-    char preorder[] = {'A','B','C','D','E','F','G','H'};
-    char inorder[] = {'B','D','C','E','A','F','H','G'};
-    PTNode node = rebuildtree(preorder,0,7,inorder,0,7);
-    postorder(node);
+    //PTNode node = rebuildtree(preorder,0,7,inorder,0,7);
+    //postorder(node);
+    pretreatment();
+    usearrysovle(inorder,0,7);
     return 0;
 }
