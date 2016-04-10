@@ -11,7 +11,7 @@ using namespace std;
 [3]、a[1:n]的最大字段和为，且1<=i<=n/2,n/2+1<=j<=n。
 可用递归方法求得情形[1],[2]。对于情形[3],可以看出a[n/2]与a[n/2+1]在最优子序列中。
 因此可以在a[1:n/2]中计算出，并在a[n/2+1:n]中计算出。则s1+s2即为出现情形[3]时的最优值。
-
+时间复杂度O(NlogN)
 
 */
 
@@ -30,20 +30,19 @@ int maxsubsum(int *a, int left, int right)//分治法
 
         //处理第3种情况
         int sum1 = -1000000, lefttemp = 0;
-        for(int i=mid;i>=left;i--)
+        for(int i=mid;i>=left;i--)//求以mid结尾的最大子段和
         {
             lefttemp += a[i];
             if(lefttemp > sum1)
                 sum1 = lefttemp;
         }
         int sum2 = -1000000, righttemp = 0;
-        for(int i=mid+1;i<=right;i++)
+        for(int i=mid+1;i<=right;i++)//求以mid+1开头的最大子段和
         {
             righttemp += a[i];
             if(righttemp > sum2)
                 sum2 = righttemp;
         }
-
         sum = sum1+sum2;
         if(sum < leftsum)
             sum = leftsum;
@@ -56,7 +55,8 @@ int maxsubsum(int *a, int left, int right)//分治法
 
 int main()
 {
-    int a[] = {-2,11,-4,13,-5,-2};
+    //int a[] = {-2,11,-4,13,-5,-2};
+    int a[] = {-9,-2,-3,-5,-3,-7};
     //cout << maxsubsum(a,0,5) << endl;
     //动态规划法,状态转移方程：b[j]=max{b[j-1]+a[j],a[j]},1<=j<=n。
     int sum = a[0], b = a[0];
@@ -68,7 +68,7 @@ int main()
             b = a[i];
         if(b > sum)
             sum = b;
-        cout << b << endl;
+        //cout << b << endl;
     }
     cout << sum ;
     return 0;
