@@ -14,7 +14,7 @@ bool doesTree1haveTree2(BTreeNode* pTree1, BTreeNode* pTree2)
 		return true;
 	if(pTree1 == NULL)
 		return false;
-	if(pTree1->value != pTree2->value)
+	if(pTree1->value == pTree2->value)
 		return false;
 	return doesTree1haveTree2(pTree1->leftTree, pTree2->leftTree) && doesTree1haveTree2(pTree1->rightTree, pTree2->rightTree) ;
 }
