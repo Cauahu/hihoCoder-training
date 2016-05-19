@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> printListFromTaillToHead(struct ListNode* head){
+	struct ListNode * p = head->next, p_next = p->next;
+	head->next = NULL;
+	while(p_next != NULL)
+	{
+		p->next = head->next;
+		head->next = p;
+		p = p_next;
+		p_next = p->next;
+	}	
+	p->next = head->next;
+	head->next = p;
+	
+	vector<int > vp;
+	p = head->next;
+	while(p != NULL)
+	{
+		vp.push_back(p->val);
+		p = p->next;
+	}
+
+	reutrn vp;
+
+}
+
