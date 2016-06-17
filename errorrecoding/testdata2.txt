@@ -1,0 +1,10 @@
+e:\1\aa3.txt 3
+e:\3\aa1.txt 2
+e:\2\aa2.txt 3
+e:\3\aa1.txt 1
+e:\1\aa1.txt 3
+e:\3\aa1.txt 2
+e:\1\aa3.txt 3
+e:\2\aa3.txt 2
+e:\1\aa1.txt 2
+e:\3\aa3.txt 2
