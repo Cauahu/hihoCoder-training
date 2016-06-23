@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1466650894 source:d:\c++\concurrency\stratthread\startthread.cpp
+	<iostream>
+	<thread>
+
+1466667860 source:d:\c++\concurrency\stratthread\parallel.cpp
+	<iostream>
+	<thread>
+	<vector>
+	<algorithm>
+
