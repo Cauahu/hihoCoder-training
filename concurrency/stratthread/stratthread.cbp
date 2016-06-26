@@ -33,8 +33,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="condition.cpp" />
-		<Unit filename="parallel.cpp" />
+		<Unit filename="future.cpp" />
+		<Unit filename="parallel.h" />
 		<Unit filename="startthread.cpp" />
+		<Unit filename="threadsafe_queue.h" />
+		<Unit filename="threadsafe_stack.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

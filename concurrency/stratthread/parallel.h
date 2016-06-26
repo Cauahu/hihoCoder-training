@@ -20,7 +20,7 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
     unsigned long const length = distance(first, last) ;
     if(!length)
         return init;
-    //计算并行度。
+
     unsigned long const min_per_thread = 25;
     unsigned long const max_threads = (length + min_per_thread - 1) / min_per_thread;
     unsigned long const hardware_threads = thread::hardware_concurrency() ;
@@ -53,3 +53,4 @@ int main()
     cout << result << endl;
 }
 */
+

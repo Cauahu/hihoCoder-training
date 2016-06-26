@@ -9,3 +9,26 @@
 	<vector>
 	<algorithm>
 
+1466650894 source:d:\c++\hihocoder-training\concurrency\stratthread\startthread.cpp
+	<iostream>
+	<thread>
+
+1466731166 source:d:\c++\hihocoder-training\concurrency\stratthread\condition.cpp
+	<iostream>
+	<mutex>
+	<condition_variable>
+	<thread>
+	<queue>
+
+1466735139 source:d:\c++\hihocoder-training\concurrency\stratthread\future.cpp
+	<iostream>
+	<future>
+	<cstdio>
+	"parallel.h"
+
+1466731391 d:\c++\hihocoder-training\concurrency\stratthread\parallel.h
+	<iostream>
+	<thread>
+	<vector>
+	<algorithm>
+

@@ -35,7 +35,7 @@ void data_processing_thread()
 
     }
 }
-
+/*
 int main()
 {
     thread t1(data_preparation_thread), t2(data_processing_thread);
@@ -43,3 +43,4 @@ int main()
     t2.join();
     return 0;
 }
+*/
