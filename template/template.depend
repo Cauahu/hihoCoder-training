@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1470554453 source:d:\c++\stl\template\main.cpp
+	<iostream>
+
+1470558126 source:d:\c++\stl\template\numeric.cpp
+	"numeric.h"
+	<iostream>
+
+1470558319 d:\c++\stl\template\numeric.h
+	<ostream>
+
